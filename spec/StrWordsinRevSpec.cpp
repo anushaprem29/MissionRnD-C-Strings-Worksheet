@@ -20,8 +20,7 @@ namespace spec
 			for (i = 0; i < len; i++){
 				Assert::AreEqual(input[i],output[i], L"Failed 1 Not equals 1", LINE_INFO());
 			}
-			//printf("asd");
-			
+			//printf("asd");	
 		}
 		TEST_METHOD(BasicStr)
 		{
