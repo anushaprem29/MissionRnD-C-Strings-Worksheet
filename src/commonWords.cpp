@@ -10,13 +10,12 @@ ERROR CASES: Return NULL for invalid inputs.
 
 NOTES: If there are no common words return NULL.
 */
-
 #include <stdio.h>
 #include <malloc.h>
 #include<string.h>
 #define SIZE 31
 int noOfWords = 0;
-char output[SIZE][SIZE];
+char **output;
 int ifAvaiable(char *str1, char *str2){
 	int iter, count = 0;
 	for (iter = 0; str1[iter] != NULL; iter++){
@@ -30,6 +29,9 @@ int ifAvaiable(char *str1, char *str2){
 }
 
 void check(char *str1, char *str2, int start, int end){
+	if (start == end){
+		return;
+	}
 	char *str = (char *)malloc(sizeof(char) *(end - start + 1));
 	int iter;
 	for (iter = start; iter <end; iter++){
@@ -52,5 +54,6 @@ char ** commonWords(char *str1, char *str2) {
 			if (str2[iter] == NULL)	break;
 		}
 	}
-	return (char**)output;
+	if(noOfWords>0) return  (char**)output;
+	return NULL;
 }
